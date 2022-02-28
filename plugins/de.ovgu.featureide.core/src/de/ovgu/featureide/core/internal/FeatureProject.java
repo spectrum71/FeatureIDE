@@ -336,9 +336,10 @@ public class FeatureProject extends BuilderMarkerHandler implements IFeatureProj
 		} catch (final CoreException e) {
 			LOGGER.logError(e);
 		}
-
 		if (project.getFile("mpl.velvet").exists()) {
 			modelFile = new ModelMarkerHandler<>(project.getFile("mpl.velvet"));
+		} else if (project.getFile("model.uvl").exists()) {
+			modelFile = new ModelMarkerHandler<>(project.getFile("model.uvl"));
 		} else {
 			modelFile = new ModelMarkerHandler<>(project.getFile("model.xml"));
 		}
